@@ -21,11 +21,11 @@ public class UPDClient : MonoBehaviour
     public void UDPConnectionTest()
     {
         UPDConnectionData data = UDPClientUI.Instance.GetData();
-        print(data);
+        UDPClientUI.Instance.SetStatus(ClientUIStates.Fail);
+        
         try
         {
-            
-
+            // Disconnect existing client
             if(client!=null)
             {
                 client.Close();
@@ -44,10 +44,12 @@ public class UPDClient : MonoBehaviour
             string receivedString = Encoding.ASCII.GetString(receivedBytes);
 
             print("Received server message: " + receivedString);
+            UDPClientUI.Instance.SetStatus(ClientUIStates.Success);
         }
         catch (System.Exception e)
         {            
             print("Exception: "+e.Message);
+            UDPClientUI.Instance.SetStatus(ClientUIStates.Fail);
         }
     }
 }

@@ -20,12 +20,23 @@ public class UDPClientUI : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        SetStatus(ClientUIStates.None);
+    }
+
     public void SetStatus(ClientUIStates state)
     {
         switch (state)
         {
             case ClientUIStates.None:
                 status.color = Color.gray;
+                break;
+            case ClientUIStates.Success:
+                status.color = Color.green;
+                break;
+            case ClientUIStates.Fail:
+                status.color = Color.red;
                 break;
             default:
                 status.color = Color.gray;
