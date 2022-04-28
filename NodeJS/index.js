@@ -14,7 +14,7 @@ server.on('listening', ()=>{
 })
 
 server.on('message', (message, senderInfo)=>{
-    console.log('Message received')
+    console.log('Message received: '+message.toString())
     server.send(message, senderInfo.port, senderInfo.address, ()=>{
         console.log(`Message have been sent to ${senderInfo.address}:${senderInfo.port}`)
     })
