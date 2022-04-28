@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -7,22 +5,13 @@ using UnityEngine;
 
 public class UPDClient : MonoBehaviour
 {
-    public string ipAddress = "127.0.0.1";
-    public int remotePort = 5500;
-    public int clientPort = 5600;
     private UdpClient client;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void UDPConnectionTest()
     {
         UPDConnectionData data = UDPClientUI.Instance.GetData();
         UDPClientUI.Instance.SetStatus(ClientUIStates.Fail);
-        
+
         try
         {
             // Disconnect existing client
@@ -34,7 +23,7 @@ public class UPDClient : MonoBehaviour
 
             client = new UdpClient(data.clientPort);
             
-            client.Connect(ipAddress, data.remotePort);
+            client.Connect(data.ipAddress, data.remotePort);
             byte[] sendBytes = Encoding.ASCII.GetBytes("Hello from client");
             client.Send(sendBytes, sendBytes.Length);
 
