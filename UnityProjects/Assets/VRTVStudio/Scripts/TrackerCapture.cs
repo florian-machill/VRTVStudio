@@ -21,11 +21,16 @@ public class TrackerCapture : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.02f);
-            
+
+            // Update UI
             TrackerData data = new TrackerData(transform.position, transform.rotation);
             TrackerUI.Instance.DisplayTrackingData(data);
-            
-            UPDClient.Instance.SendTrackingData(data);            
+
+            if (TrackerUI.Instance.ShouldSync())
+            {
+                // Send data
+                UPDClient.Instance.SendTrackingData(data);
+            }
         }
     }
 }

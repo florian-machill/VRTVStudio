@@ -11,9 +11,10 @@ public class TrackerUI : MonoBehaviour
     public static TrackerUI Instance;
     public TMP_Dropdown deviceSelection;
 
+    public Toggle syncToogle;
+
     public TMP_Text positionsLabel;
     public TMP_Text rotationsLabel;
-
     public SteamVR_TrackedObject trackedObject;
 
     void Awake()
@@ -41,6 +42,11 @@ public class TrackerUI : MonoBehaviour
     {
         positionsLabel.text = "xPos: " + data.xPos + ", yPos: " + data.yPos + ", zPos: " + data.zPos;
         rotationsLabel.text = "xRot: " + data.xRot + ", yRot: " + data.yRot + ", zRot: " + data.zRot;
+    }
+
+    public bool ShouldSync()
+    {
+        return syncToogle.isOn;
     }
 
     private void OnTrackingDeviceSelected(TMP_Dropdown dropdown)

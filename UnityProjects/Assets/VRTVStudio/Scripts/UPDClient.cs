@@ -1,9 +1,6 @@
 using System;
-using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.Text;
 using UnityEngine;
 
@@ -68,13 +65,6 @@ public class UPDClient : MonoBehaviour
             client = new UdpClient(connectionData.clientPort);
 
             client.Connect(connectionData.ipAddress, connectionData.remotePort);
-            /*
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-            bf.Serialize(ms, data);
-
-            byte[] sendBytes = ms.ToArray();*/
-
             
             byte[] sendBytes =  new byte[24];
             BitConverter.GetBytes(data.xPos).CopyTo(sendBytes, 0);
