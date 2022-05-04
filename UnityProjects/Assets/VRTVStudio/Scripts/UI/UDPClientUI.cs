@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Valve.VR;
-
-public enum ClientUIStates { None, Success, Fail }
 
 public class UDPClientUI : MonoBehaviour
 {
