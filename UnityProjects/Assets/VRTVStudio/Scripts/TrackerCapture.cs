@@ -20,13 +20,14 @@ public class TrackerCapture : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.02f);
+            float waitTime = UDPClientUI.Instance.GetInterval() / 1000;
+            yield return new WaitForSeconds(waitTime);
 
-            // Update UI
+            // Update UI: Display data
             TrackerData data = new TrackerData(transform.position, transform.rotation);
             TrackerUI.Instance.DisplayTrackingData(data);
 
-            if (TrackerUI.Instance.ShouldSync())
+            if (UDPClientUI.Instance.ShouldSync())
             {
                 // Send data
                 UPDClient.Instance.SendTrackingData(data);
