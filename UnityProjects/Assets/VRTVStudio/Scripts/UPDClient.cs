@@ -17,7 +17,6 @@ public class UPDClient : MonoBehaviour
     public void UDPConnectionTest()
     {
         UPDConnectionData data = UDPClientUI.Instance.GetData();
-        UDPClientUI.Instance.SetStatus(ClientUIStates.Fail);
 
         try
         {
@@ -40,12 +39,10 @@ public class UPDClient : MonoBehaviour
             string receivedString = Encoding.ASCII.GetString(receivedBytes);
 
             print("Received server message: " + receivedString);
-            UDPClientUI.Instance.SetStatus(ClientUIStates.Success);
         }
         catch (System.Exception e)
         {
             print("Exception: " + e.Message);
-            UDPClientUI.Instance.SetStatus(ClientUIStates.Fail);
         }
     }
 
@@ -77,14 +74,10 @@ public class UPDClient : MonoBehaviour
             print(BitConverter.ToString(sendBytes));
 
             client.Send(sendBytes, sendBytes.Length);
-
-
-            UDPClientUI.Instance.SetStatus(ClientUIStates.Success);
         }
         catch (System.Exception e)
         {
             print("Exception: " + e.Message);
-            UDPClientUI.Instance.SetStatus(ClientUIStates.Fail);
         }
     }
 }
