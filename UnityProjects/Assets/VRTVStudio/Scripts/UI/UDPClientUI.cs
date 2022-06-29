@@ -76,6 +76,8 @@ public class UDPClientUI : MonoBehaviour
         return syncToogle.isOn;
     }
 
+
+    // TODO: Refactor that the ui has no connection to the steamvr tracked object
     private void OnTrackingDeviceSelected(TMP_Dropdown dropdown)
     {
         trackedObject.SetDeviceIndex(dropdown.value);

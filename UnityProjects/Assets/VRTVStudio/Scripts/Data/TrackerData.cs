@@ -19,10 +19,19 @@ public class TrackerData
         yPos = position.y;
         zPos = position.z;
 
-        Vector3 eulers = rotation.eulerAngles;
+        Vector3 eulers = (rotation * Quaternion.Euler(90,0,0)).eulerAngles;
         xRot = eulers.x;
         yRot = eulers.y;
         zRot = eulers.z;
+
+        xRot %= 360;
+        xRot = xRot > 180 ? xRot - 360 : xRot;
+
+        yRot %= 360;
+        yRot = yRot > 180 ? yRot - 360 : yRot;
+
+        zRot %= 360;
+        zRot = zRot > 180 ? zRot - 360 : zRot;
     }
     
     public byte[] GetBytes()
