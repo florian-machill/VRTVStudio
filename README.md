@@ -13,8 +13,11 @@ Rotations are mapped to range of -180 to 180 degree.
 
 ## Required Hard- and Software Setup
 o Unity 2020.3.30
+
 o SteamVR 1.2.????
+
 o HTC Vive
+
 o NodeJS X.X
 
 ## NodeJS Server
