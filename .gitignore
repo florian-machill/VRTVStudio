@@ -10,6 +10,7 @@ UnityProjects/[Bb]uilds/
 UnityProjects/[Ll]ogs/
 UnityProjects/[Uu]ser[Ss]ettings/
 
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 UnityProjects/[Mm]emoryCaptures/
@@ -70,3 +71,5 @@ UnityProjects/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 UnityProjects/[Aa]ssets/[Ss]treamingAssets/aa.meta
 UnityProjects/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+./FreeDUdpTx/
