@@ -1,6 +1,6 @@
 # VRTVStudio
 This repository contains an Unity-Project with a SteamVR Application.
-The Application captures the tracking data from a SteamVR-compatible Device (e.g. the vive controllers or vive tracker). The captured data is converted to be send via the UPD protocol.
+The Application captures the tracking data from a SteamVR-compatible device (e.g. the vive controllers or vive tracker). The captured data is converted to be send via the UPD protocol.
 
 ## Dataformat
 The data which is send via upd has the folling structure:
